@@ -36,7 +36,7 @@ do
 
   # get the name servers for this list, then get their IPs
 #  host -t ns $list |grep "name server " |sed 's/.*name server //' | \
-  dig +trace $list |grep $list.*NS |sed 's/.*NS\s*//' | \
+  dig @8.8.8.8 +trace $list |grep $list.*NS |sed 's/.*NS\s*//' | \
   while read ns
   do
     printf "  $list\t$ns\n"
